@@ -42,6 +42,11 @@ Domain ImportacionProcesamientoDistribucionDeDatosMedicos {
     domainVisionStatement = "Todos los procesos y servicios de STA deben o pueden ser auditados periodicamente para garantizar las normativas y leyes juridicas de cada pais"
   }
 
+  Subdomain ServicioDePreventa {
+    type = SUPPORTING_DOMAIN
+    domainVisionStatement = "Soporte, ayuda y guia a los clientes que hayan adquirido los planes Pro o Enterprise"
+  }
+
    Subdomain ServicioDePostventa {
     type = SUPPORTING_DOMAIN
     domainVisionStatement = "Soporte, ayuda y guia a los clientes que hayan adquirido los planes Pro o Enterprise"

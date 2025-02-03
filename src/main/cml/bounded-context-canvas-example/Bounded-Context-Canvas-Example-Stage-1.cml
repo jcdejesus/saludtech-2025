@@ -1,5 +1,5 @@
 /* Example Context Map written using a Bounded Context Canvas. */
-ContextMap InsuranceContextMap {
+ContextMap ImportacionProcesamientoDistribucionDeDatosMedicosContextMap {
 	type = SYSTEM_LANDSCAPE
 	state = TO_BE
 
