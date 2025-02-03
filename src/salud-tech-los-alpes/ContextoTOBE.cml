@@ -1,0 +1,88 @@
+ContextMap DatosMedicosContextMap {
+	type =  SYSTEM_LANDSCAPE
+	state = TO_BE
+    
+	contains DatosMedicosContext
+    contains TransformacionDeDatos
+    contains VisualizacionDeDatos
+    contains SesionesDeTrabajo
+    contains Clientes
+    contains Proveedores
+    contains PlanesDeVentas
+    contains Auditorias
+    contains Regulaciones
+    contains Seguridad
+
+    DatosMedicosContext [OHS] -> [ACL] TransformacionDeDatos
+    DatosMedicosContext [OHS] -> [ACL] VisualizacionDeDatos
+    PlanesDeVentas <- [OHS] Clientes
+    Proveedores [OHS] -> DatosMedicosContext
+    Clientes [OHS] -> SesionesDeTrabajo
+    PlanesDeVentas -> SesionesDeTrabajo
+    VisualizacionDeDatos [OHS] -> SesionesDeTrabajo
+    Regulaciones [OHS] -> TransformacionDeDatos
+    Regulaciones [OHS] -> Auditorias
+    Regulaciones [OHS] -> Seguridad
+    Seguridad -> [ACL] TransformacionDeDatos
+}
+
+
+/* Bounded Context Definitions */
+BoundedContext DatosMedicosContext {
+    domainVisionStatement = 'Los datos medicos representan imagenes, metadatos, etiquetas y metadatos provistos por los proveedores (laboratorios, clinicas, hospitales, entre otros) en diferentes formatos'
+    type = FEATURE
+}
+
+/* Bounded Context Definitions */
+BoundedContext TransformacionDeDatos {
+    domainVisionStatement = 'Transformación de datos representan todos los procesos asociados a depurar, etiquetar, transformar y verificar las imágenes y datos medicos asociados provistos por los proveedores (laboratorios, clinicas, hospitales, entre otros) a traves del uso de diferentes técnicas y automatizaciones'
+    type = FEATURE
+}
+
+/* Bounded Context Definitions */
+BoundedContext VisualizacionDeDatos {
+    domainVisionStatement = 'Visualiación de datos representa los procesos, servicios y técnicas para visualizar y distribuir los datos médicos a todos los clientes con vinculos comercial'
+    type = FEATURE
+}
+
+/* Bounded Context Definitions */
+BoundedContext PlanesDeVentas {
+    domainVisionStatement = 'Los planes de venta son los servicios y sus categoria que pueden ser adquiridos por los clientes para tener un vinculo comercial con STA y poder acceder a los datos médicos para el entrenamiento de modelos'
+    type = FEATURE
+}
+
+/* Bounded Context Definitions */
+BoundedContext Clientes {
+    domainVisionStatement = 'Empresas, organizaciones y personas interesados en el entrenamiento de modelos IA  los cuales tiene un vinculo comercial con STA para hacer uso de los datos médicos'
+    type = FEATURE
+}
+
+/* Bounded Context Definitions */
+BoundedContext Proveedores {
+    domainVisionStatement = 'Laboratorios, clinicas, hospitales o cualquier institución médica interesado en proveed imagenes y datos médicos para la distribución anonima para el entrenamiento de modelos IA'
+    type = FEATURE
+}
+
+/* Bounded Context Definitions */
+BoundedContext Regulaciones {
+    domainVisionStatement = 'Las regulaciones son procesos asociados a las reglas, normativas, leyes, restricciones y uso asociados al manejo, protección y seguridad de los datos suministrados por las entidades medicas'
+    type = FEATURE
+}
+
+/* Bounded Context Definitions */
+BoundedContext Seguridad {
+    domainVisionStatement = 'Procesos y herramientas para garantizar el acceso y uso correcto de los recursos, datos, herramientas y servicios asociados al manejo y distribución de los datos médicos'
+    type = FEATURE
+}
+
+/* Bounded Context Definitions */
+BoundedContext Auditorias {
+    domainVisionStatement = 'Procesos y datos de revisiónes sobre los procesos internos, politicas, herramientas de STA'
+    type = FEATURE
+}
+
+/* Bounded Context Definitions */
+BoundedContext SesionesDeTrabajo {
+    domainVisionStatement = 'Sesiones de trabajo de los clientes en tiempo real sobre los datos médicos a traves de recursos computacionales en la nube privada de STA'
+    type = FEATURE
+}

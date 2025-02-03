@@ -12,7 +12,7 @@ Domain ImportacionProcesamientoDistribucionDeDatosMedicos {
     domainVisionStatement = "Las imagenes y datos medicos de nuestros proveedores deben ser verificados, depurados de datos sensibles y formato entendibles por los modelos de IA de STA y otros componentes cumpliendo al mismo tiempo con las regulaciones legales de cada país"
   }
 
-  Subdomain EstructuracionEtiquetadoAlmacenamientoDeDatosMedicos {
+  Subdomain TransformacionDeDatosMedicos {
     type = CORE_DOMAIN
     domainVisionStatement = "Las imagenes y datos medicos de nuestros proveedores deben estar estructurados, etiquetados, formateados y almacenados para que puedan ser utilizandos por los modelos de IA de nuestro clientes cumpliendo al mismo tiempo con las regulaciones legales de cada país"
   }
@@ -27,7 +27,7 @@ Domain ImportacionProcesamientoDistribucionDeDatosMedicos {
     domainVisionStatement = "Los clientes representan empresas de IA, desarrolladores independientes y otras instituciones en los paises del mercado actual y futuro con quienes hay un vinculo comercial y hacen uso de los datos providos por STA para el entrenamiento de modelos IA"
   }
 
-  Subdomain ServicioInfraestructuraOperaciones {
+  Subdomain Operaciones {
     type = GENERIC_SUBDOMAIN
     domainVisionStatement = "Los clientes de los planes Pro y Enterprise deben poder usar ciertas carácteristicas sobre los datos médicos para entrenamiento de modelos IA a traves del aprovisionamiento y credenciales de recursos computaciones en la nube de STA"
   }
