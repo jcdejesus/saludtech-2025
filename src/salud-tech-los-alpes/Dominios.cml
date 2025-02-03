@@ -1,59 +1,49 @@
 
 Domain ImportacionProcesamientoDistribucionDeDatosMedicos {
-  domainVisionStatement = "Recaudar, procesar y distribuir imagenes, metadatos y diagnosticos médicos para entrenamientos de modelos de IA de nuestros clientes o socios"
+  domainVisionStatement = "Recaudar, procesar y distribuir imagenes, metadatos y diagnosticos médicos para entrenamientos de modelos de IA de nuestros clientes"
 
   Subdomain ImportacionDeDatosMedicos {
     type = CORE_DOMAIN
-    domainVisionStatement = "Las imagenes y datos medicos de nuestros proveedores deben poder ser recolectados en difentes formatos para unificarlos y generar datos anonimos, confiables, exactos y entendibles a los modelos de IA"
+    domainVisionStatement = "Las imagenes y datos medicos de nuestros proveedores deben poder ser recolectados en difentes formatos para unificarlos y generar datos anonimos, confiables, exactos y entendibles por los modelos de IA"
   }
 
   Subdomain DepuracionDeDatosMedicos {
     type = CORE_DOMAIN
-    domainVisionStatement = ""
+    domainVisionStatement = "Las imagenes y datos medicos de nuestros proveedores deben ser verificados, depurados de datos sensibles y formato entendibles por los modelos de IA de STA y otros componentes cumpliendo al mismo tiempo con las regulaciones legales de cada país"
   }
 
-  Subdomain EntrenamientoDeModelosIA {
+  Subdomain EstructuracionEtiquetadoAlmacenamientoDeDatosMedicos {
     type = CORE_DOMAIN
-    domainVisionStatement = ""
-  }
-
-  Subdomain AlmacenamientoDeDatosMedicos {
-    type = CORE_DOMAIN
-    domainVisionStatement = ""
-  }
-
-  Subdomain GeneracionDetokens {
-    type = CORE_DOMAIN
-    domainVisionStatement = ""
+    domainVisionStatement = "Las imagenes y datos medicos de nuestros proveedores deben estar estructurados, etiquetados, formateados y almacenados para que puedan ser utilizandos por los modelos de IA de nuestro clientes cumpliendo al mismo tiempo con las regulaciones legales de cada país"
   }
 
   Subdomain Proveedores {
     type = GENERIC_SUBDOMAIN
-    domainVisionStatement = ""
+    domainVisionStatement = "Los proveedores representan laboratorios, clinicas, hospitales, centros de investigación y otras instituciones en los paises del mercado actual y futuro con quienes hay un vinculo comercial y proveen las imagenes y datos médicos para ser usados por los modelos de IA de nuesrtos clientes"
   }
 
   Subdomain Clientes {
     type = GENERIC_SUBDOMAIN
-    domainVisionStatement = ""
+    domainVisionStatement = "Los clientes representan empresas de IA, desarrolladores independientes y otras instituciones en los paises del mercado actual y futuro con quienes hay un vinculo comercial y hacen uso de los datos providos por STA para el entrenamiento de modelos IA"
   }
 
   Subdomain ServicioInfraestructuraOperaciones {
     type = GENERIC_SUBDOMAIN
-    domainVisionStatement = ""
+    domainVisionStatement = "Los clientes de los planes Pro y Enterprise deben poder usar ciertas carácteristicas sobre los datos médicos para entrenamiento de modelos IA a traves del aprovisionamiento y credenciales de recursos computaciones en la nube de STA"
   }
 
    Subdomain ServicioJuridicos {
     type = GENERIC_SUBDOMAIN
-    domainVisionStatement = ""
+    domainVisionStatement = "Todos los servicios ofrecidos asi como los procesos de manejo y protección de datos debe regirse por normativas y leyes juridicas para cada pais del mercado actual y futuro."
   }
 
   Subdomain Auditorias {
     type = SUPPORTING_DOMAIN
-    domainVisionStatement = ""
+    domainVisionStatement = "Todos los procesos y servicios de STA deben o pueden ser auditados periodicamente para garantizar las normativas y leyes juridicas de cada pais"
   }
 
    Subdomain ServicioDePostventa {
     type = SUPPORTING_DOMAIN
-    domainVisionStatement = ""
+    domainVisionStatement = "Soporte, ayuda y guia a los clientes que hayan adquirido los planes Pro o Enterprise"
   }
 }
