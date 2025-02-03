@@ -1,0 +1,59 @@
+
+Domain ImportacionProcesamientoDistribucionDeDatosMedicos {
+  domainVisionStatement = "Recaudar, procesar y distribuir imagenes, metadatos y diagnosticos médicos para entrenamientos de modelos de IA de nuestros clientes o socios"
+
+  Subdomain ImportacionDeDatosMedicos {
+    type = CORE_DOMAIN
+    domainVisionStatement = "Las imagenes y datos medicos de nuestros proveedores deben poder ser recolectados en difentes formatos para unificarlos y generar datos anonimos, confiables, exactos y entendibles a los modelos de IA"
+  }
+
+  Subdomain DepuracionDeDatosMedicos {
+    type = CORE_DOMAIN
+    domainVisionStatement = ""
+  }
+
+  Subdomain EntrenamientoDeModelosIA {
+    type = CORE_DOMAIN
+    domainVisionStatement = ""
+  }
+
+  Subdomain AlmacenamientoDeDatosMedicos {
+    type = CORE_DOMAIN
+    domainVisionStatement = ""
+  }
+
+  Subdomain GeneracionDetokens {
+    type = CORE_DOMAIN
+    domainVisionStatement = ""
+  }
+
+  Subdomain Proveedores {
+    type = GENERIC_SUBDOMAIN
+    domainVisionStatement = ""
+  }
+
+  Subdomain Clientes {
+    type = GENERIC_SUBDOMAIN
+    domainVisionStatement = ""
+  }
+
+  Subdomain ServicioInfraestructuraOperaciones {
+    type = GENERIC_SUBDOMAIN
+    domainVisionStatement = ""
+  }
+
+   Subdomain ServicioJuridicos {
+    type = GENERIC_SUBDOMAIN
+    domainVisionStatement = ""
+  }
+
+  Subdomain Auditorias {
+    type = SUPPORTING_DOMAIN
+    domainVisionStatement = ""
+  }
+
+   Subdomain ServicioDePostventa {
+    type = SUPPORTING_DOMAIN
+    domainVisionStatement = ""
+  }
+}
