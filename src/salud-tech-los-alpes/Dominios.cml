@@ -5,6 +5,11 @@ Domain ImportacionProcesamientoDistribucionDeDatosMedicos {
   Subdomain ImportacionDeDatosMedicos {
     type = CORE_DOMAIN
     domainVisionStatement = "Las imagenes y datos medicos de nuestros proveedores deben poder ser recolectados en difentes formatos para unificarlos y generar datos anonimos, confiables, exactos y entendibles por los modelos de IA"
+
+    Entity RawMedicalData{
+      Set<Blob> images
+      Set<Blob> clinicalHistory
+    }
   }
 
   Subdomain DepuracionDeDatosMedicos {
@@ -15,21 +20,72 @@ Domain ImportacionProcesamientoDistribucionDeDatosMedicos {
   Subdomain TransformacionDeDatosMedicos {
     type = CORE_DOMAIN
     domainVisionStatement = "Las imagenes y datos medicos de nuestros proveedores deben estar estructurados, etiquetados, formateados y almacenados para que puedan ser utilizandos por los modelos de IA de nuestro clientes cumpliendo al mismo tiempo con las regulaciones legales de cada país"
+
+    Entity AnonimizedMedicalData {
+      String token
+      Set<Blob> images
+      String metadata  
+    }
+  }
+
+  Subdomain PresentacionDeDatosMedicos {
+    type = CORE_DOMAIN
+    domainVisionStatement = "Permitir la visualización de las imagenes y datos medicos anonimizados a los desarrolladores, empresas de IA, laboratorios o empresas gubernamentales"
+
+    Entity AnonimizedPresentationData {
+      Set<Blob> images
+      String metadata  
+      String tag 
+    }
+
   }
 
   Subdomain Proveedores {
     type = GENERIC_SUBDOMAIN
     domainVisionStatement = "Los proveedores representan laboratorios, clinicas, hospitales, centros de investigación y otras instituciones en los paises del mercado actual y futuro con quienes hay un vinculo comercial y proveen las imagenes y datos médicos para ser usados por los modelos de IA de nuesrtos clientes"
+
+    Entity Provider {
+      Boolean isRawMedicalDataOnPremise
+      - Address address
+      String partnerName
+    }
+
+    Entity Address {
+      String street
+      int postalCode
+      String city
+    }
+  
   }
 
   Subdomain Clientes {
     type = GENERIC_SUBDOMAIN
     domainVisionStatement = "Los clientes representan empresas de IA, desarrolladores independientes y otras instituciones en los paises del mercado actual y futuro con quienes hay un vinculo comercial y hacen uso de los datos providos por STA para el entrenamiento de modelos IA"
+
+    Entity Client {
+      String userEmail
+      String username
+      String password
+      - Membership membership
+    }
+
+    Entity Membership {
+      String membershipType
+      Long cost
+      Date startDate
+      Date endDate
+
+    }
   }
 
   Subdomain Operaciones {
     type = GENERIC_SUBDOMAIN
     domainVisionStatement = "Los clientes de los planes Pro y Enterprise deben poder usar ciertas carácteristicas sobre los datos médicos para entrenamiento de modelos IA a traves del aprovisionamiento y credenciales de recursos computaciones en la nube de STA"
+  }
+
+  Subdomain Seguridad {
+    type = GENERIC_SUBDOMAIN
+    domainVisionStatement = "Los datos deben cumplir con las normas de seguridad  y regulaciones de cada país de donde fueron obtenidos."
   }
 
    Subdomain ServicioJuridicos {
@@ -56,90 +112,48 @@ Domain ImportacionProcesamientoDistribucionDeDatosMedicos {
 
 UserStory ProveerDataAnonimizada  {
   As a "Healthcare Provider"
-    I want to "provide" "anonymized medical data" in "a standardized format"
+    I want to "provide" "RawMedicalData" in "a standardized format"
   so that "I can receive a payment based on its usage."
 }
 
 UserStory AccesoImagenesMedicas {
   As an "AI Researcher"
-    I want to "access" "anonymized and structured medical images"
+    I want to "access" "AnonimizedPresentationData"
   so that "I can train AI models with high-quality data."
 }
 
 UserStory AsegurarAnonimizacionDeLaData{
   As a "Data Administrator"
-    I want to "ensure" that "partner data is properly anonymized" before processing
+    I want to "protect" "AnonimizedMedicalData"
   so that "we comply with privacy regulations like HIPAA."
 }
 
 UserStory VerificarCalidadData {
   As a "Data Scientist"
-    I want to "verify" "the quality and structure of anonymized data"
+    I want to "verify" "AnonimizedMedicalData"
   so that "it is suitable for AI model training."
-}
-
-UserStory AutomatizarAnonimizacionOnPremise {
-  As a "Healthcare Provider"
-    I want to "have" "an automated anonymization process" on "my on-premise infrastructure"
-  so that "I can prevent the exposure of sensitive data before uploading it to the cloud."
 }
 
 UserStory AccesoImagenesMedicasClasificadas {
   As an "AI Developer"
-    I want to "access" "medical images classified by modality, anatomical region, and pathology"
+    I want to "access" "AnonimizedPresentationData"
   so that "I can optimize the training of my AI models."
 }
 
-UserStory SubscribirmeSTAStandard {
+UserStory VisualizarData {
   As an "STA Standard User"
-    I want to "access" "medical images and metadata" through "a subscription model"
+    I want to "access" "AnonimizedPresentationData"
   so that "I can obtain data easily without additional infrastructure."
 }
 
-UserStory EjecutarSQLQueriesComoProUser {
-  As an "STA Pro User"
-    I want to "execute" "SQL queries" on "dedicated databases"
-  so that "I can retrieve specific information without the limitations of a standard model."
+UserStory SubscribirmeSTAStandard {
+  As an "Desarrillador AI"
+    I want to "register" "Client" with its "userEmail", "username", "membership"
+  so that "I can visualise medical data."
 }
 
-UserStory RecibirSoporteComoEnterpriseUser {
-  As an "STA Enterprise User"
-    I want to "have" "dedicated experts" to "assist me in training AI models"
-  so that "I can optimize my research and development results."
-}
-
-UserStory OrganizarClusteresDeDatos {
-  As an "STA Administrator"
-    I want to "organize" "data into appropriate clusters" based on "examination type and pathology"
-  so that "I can optimize AI pipeline processing."
-}
-
-UserStory EjecutarModelosEspeciales {
-  As an "AI Pipeline Developer"
-    I want to "execute" "specialized models" based on "data grouping"
-  so that "I can improve processing accuracy and efficiency."
-}
-
-UserStory GenerarDataFramesEstructurados {
-  As a "Data Analyst"
-    I want to "generate" "data frames" with "anonymized images and structured data in Parquet format"
-  so that "I can facilitate data storage and querying."
-}
-
-UserStory AsegurarSeguridadMultiTenant {
-  As a "Security Officer"
-    I want to "ensure" that "the multi-tenant infrastructure properly isolates partner data"
-  so that "we can prevent information exposure risks."
-}
-
-UserStory SubirDataDesdeServiciosCloud{
-  As a "Healthcare Provider"
-    I want to "upload" "my data from cloud services" like "Google Drive or Dropbox"
-  so that "I can transfer data easily without specialized infrastructure."
-}
-
-UserStory MantenerTokenDePacienteAnonimo {
-  As an "AI Researcher"
-    I want to "use" "anonymized patient data" with "a unique token"
-  so that "I can analyze clinical histories without compromising patient identity."
+UserStory RegistrarProvedor {
+  As an "Equipo de STA"
+    I want to "create" "Provider" with its "isRawMedicalDataOnPremise", "Address", "partnerName"
+  so that "I can obtain the RawMedicalData."
 }
