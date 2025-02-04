@@ -51,4 +51,95 @@ Domain ImportacionProcesamientoDistribucionDeDatosMedicos {
     type = SUPPORTING_DOMAIN
     domainVisionStatement = "Soporte, ayuda y guia a los clientes que hayan adquirido los planes Pro o Enterprise"
   }
+
+}
+
+UserStory ProveerDataAnonimizada  {
+  As a "Healthcare Provider"
+    I want to "provide" "anonymized medical data" in "a standardized format"
+  so that "I can receive a payment based on its usage."
+}
+
+UserStory AccesoImagenesMedicas {
+  As an "AI Researcher"
+    I want to "access" "anonymized and structured medical images"
+  so that "I can train AI models with high-quality data."
+}
+
+UserStory AsegurarAnonimizacionDeLaData{
+  As a "Data Administrator"
+    I want to "ensure" that "partner data is properly anonymized" before processing
+  so that "we comply with privacy regulations like HIPAA."
+}
+
+UserStory VerificarCalidadData {
+  As a "Data Scientist"
+    I want to "verify" "the quality and structure of anonymized data"
+  so that "it is suitable for AI model training."
+}
+
+UserStory AutomatizarAnonimizacionOnPremise {
+  As a "Healthcare Provider"
+    I want to "have" "an automated anonymization process" on "my on-premise infrastructure"
+  so that "I can prevent the exposure of sensitive data before uploading it to the cloud."
+}
+
+UserStory AccesoImagenesMedicasClasificadas {
+  As an "AI Developer"
+    I want to "access" "medical images classified by modality, anatomical region, and pathology"
+  so that "I can optimize the training of my AI models."
+}
+
+UserStory SubscribirmeSTAStandard {
+  As an "STA Standard User"
+    I want to "access" "medical images and metadata" through "a subscription model"
+  so that "I can obtain data easily without additional infrastructure."
+}
+
+UserStory EjecutarSQLQueriesComoProUser {
+  As an "STA Pro User"
+    I want to "execute" "SQL queries" on "dedicated databases"
+  so that "I can retrieve specific information without the limitations of a standard model."
+}
+
+UserStory RecibirSoporteComoEnterpriseUser {
+  As an "STA Enterprise User"
+    I want to "have" "dedicated experts" to "assist me in training AI models"
+  so that "I can optimize my research and development results."
+}
+
+UserStory OrganizarClusteresDeDatos {
+  As an "STA Administrator"
+    I want to "organize" "data into appropriate clusters" based on "examination type and pathology"
+  so that "I can optimize AI pipeline processing."
+}
+
+UserStory EjecutarModelosEspeciales {
+  As an "AI Pipeline Developer"
+    I want to "execute" "specialized models" based on "data grouping"
+  so that "I can improve processing accuracy and efficiency."
+}
+
+UserStory GenerarDataFramesEstructurados {
+  As a "Data Analyst"
+    I want to "generate" "data frames" with "anonymized images and structured data in Parquet format"
+  so that "I can facilitate data storage and querying."
+}
+
+UserStory AsegurarSeguridadMultiTenant {
+  As a "Security Officer"
+    I want to "ensure" that "the multi-tenant infrastructure properly isolates partner data"
+  so that "we can prevent information exposure risks."
+}
+
+UserStory SubirDataDesdeServiciosCloud{
+  As a "Healthcare Provider"
+    I want to "upload" "my data from cloud services" like "Google Drive or Dropbox"
+  so that "I can transfer data easily without specialized infrastructure."
+}
+
+UserStory MantenerTokenDePacienteAnonimo {
+  As an "AI Researcher"
+    I want to "use" "anonymized patient data" with "a unique token"
+  so that "I can analyze clinical histories without compromising patient identity."
 }
