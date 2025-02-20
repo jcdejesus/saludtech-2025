@@ -35,3 +35,6 @@ saludtech-2025/
 ### Entrega 1
 Para revisar la documentación de la entrega 1 por favor diríjase a:
 * [README.md](/entregas/entrega-1/README.md)
+
+
+#ACTUALIZADO POR ME
